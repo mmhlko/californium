@@ -4,6 +4,8 @@ import s from './styles.module.scss';
 import { TPaymentInput } from "../Payment";
 import { InputType, InputVariety } from "../../types/types";
 import { ChangeEvent, useState } from "react"
+import { useAppSelector } from "../../../../storage/hookTypes";
+import { ReactComponent as CopyBtnSvg } from "../../assets/copy-btn.svg"
 
 
 type CryptoFormInputsProps = {
@@ -14,6 +16,7 @@ export const CryptoFormInputs = ({ inputList }: CryptoFormInputsProps) => {
 
     const [number, setNumber] = useState(1);
     const [checked, setChecked] = useState(false);
+    const walletNumber = useAppSelector(state => state.wallet.walletNumber)
 
     const handleMinusClick = () => {
         number !== 1 && setNumber(prev => prev - 1)
@@ -22,9 +25,10 @@ export const CryptoFormInputs = ({ inputList }: CryptoFormInputsProps) => {
         number < 18 && setNumber(prev => prev + 1)
     }
     const handleCheckboxClick = (e: ChangeEvent<HTMLInputElement>) => {
-        console.log('click', number);
-        
         setChecked(e.target.checked)
+    }
+    const handleCopyWalletClick = () => {
+        navigator.clipboard.writeText(walletNumber)
     }
 
     const InputNumber = () => {
@@ -37,12 +41,20 @@ export const CryptoFormInputs = ({ inputList }: CryptoFormInputsProps) => {
         )
     }
 
-
     const InputCheckBox = () => {
         return (
-            <div className={classNames(s.input_checkbox)}>                
+            <div className={classNames(s.input_checkbox)}>
                 <Input checked={checked} onChange={handleCheckboxClick} id="checkbox" name="checkbox" type={InputType.checkbox} />
                 <label htmlFor="checkbox"></label>
+            </div>
+        )
+    }
+
+    const InputWallet = ({ item }: { item: TPaymentInput }) => {
+        return (
+            <div className={s.input_wallet}>
+                <Input id={item.title} value={walletNumber} placeholder={item.placeHolder} type={item.type} />
+                <CopyBtnSvg onClick={handleCopyWalletClick} />
             </div>
         )
     }
@@ -55,7 +67,9 @@ export const CryptoFormInputs = ({ inputList }: CryptoFormInputsProps) => {
                     {item.variety !== InputVariety.number
                         ? item.type === InputType.checkbox
                             ? <InputCheckBox />
-                            : <Input id={item.title} onChange={() => { }} placeholder={item.placeHolder} type={item.type} />
+                            : item.variety === InputVariety.wallet
+                                ? <InputWallet item={item}/>
+                                : <Input id={item.title} placeholder={item.placeHolder} type={item.type} />
                         : <InputNumber />
                     }
                 </div>

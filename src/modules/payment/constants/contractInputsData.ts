@@ -14,7 +14,7 @@ export const contractInputsData = {
         { title: "Token Symbol", placeHolder: "Real fancy", type: InputType.text, wide: false },
         { title: "Total supply", placeHolder: "1.000.000.000", type: InputType.text, wide: false },
         { title: "Decimales Number (1-18)", placeHolder: "", type: InputType.number, wide: false, variety: InputVariety.number },
-        { title: "Initial Owner", placeHolder: "", type: InputType.text, wide: true, variety: InputVariety.wallet },
+        { title: "Initial Owner", placeHolder: "0x7a7a85e3cb5cc470fe419b3d79eefee128ba7da2", type: InputType.text, wide: true, variety: InputVariety.wallet },
     ],
     [ContractTypes.ICO]: [
         { title: "Token Address", placeHolder: "Adress of your token", type: InputType.text, wide: false },
