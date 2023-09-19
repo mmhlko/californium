@@ -14,12 +14,9 @@ export function ContentHeader({ title, children, to, textButton }: IContentHeade
 
     return (
         <div className={s.wrapper}>
-            {/* <a href="#" className={s.buttonBack} onClick={() => navigate(to || -1)}>{textButton}</a> */}
-
             {textButton && <Link to={to || PREV_PAGE as To} className={s.buttonBack}>{textButton}</Link>}
             <h1 className={s.title}>{title}</h1>
             {children}
         </div>
-
     )
 }

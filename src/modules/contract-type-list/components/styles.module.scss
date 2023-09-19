@@ -1,3 +1,8 @@
 .contract_list_wrapper {
     margin-bottom: 62px;
 }
+@media (max-width: 480px) {
+    .contract_list_wrapper {
+        margin-bottom: 42px;
+    }
+}

@@ -40,17 +40,14 @@
             width: 100%;
             max-height: 352px;
             display: flex;
-            flex-direction: column;
-            padding: 32px;
-            border-radius: 10px;
-            background-color: var(--background-color-secondary);
+            flex-direction: column;            
+            border-radius: 10px;            
             gap: 27px;
 
             .payment_title{
                 font-size: 20px;
             }
-            .payment_cost{
-                font-size: 36px;
+            .payment_cost{                
                 font-weight: 700;
                 flex-grow: 1;
             }
@@ -60,5 +57,41 @@
     .chain_label {
         font-size: 20px;
         line-height: 104%;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+.form {
+    row-gap: 26px;
+    .payment_wrapper {
+        width: 100%;
+        .chain_label {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+        .payment_content {
+            background-color: inherit;
+            padding: 0;
+            .payment_cost {
+                padding: 18px;
+                background: var(--background-color-secondary);
+                border-radius: 10px;
+                font-weight: 24px;
+            }
+        }
+    }
+}
+    
+}
+@media (min-width: 481px) {
+    .payment_content {
+        background-color: var(--background-color-secondary);
+        padding: 32px;
+        .payment_cost {
+            font-size: 36px;
+        }
     }
 }

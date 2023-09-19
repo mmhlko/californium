@@ -1,7 +1,7 @@
-.wrapper {
-    height: 216px;
+.footer {
     border-top: var(--border-line);
     padding-top: 47px;
+    padding-bottom: 56px;
     z-index: 10;       
 
     display: flex;
@@ -18,7 +18,16 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 74px;           
-        
+        column-gap: 74px;           
     }
+}
+
+@media (max-width: 767px) {
+    .footer {
+        padding-bottom: 64px;
+        .list {
+            flex-direction: column;
+            row-gap: 27px;
+        }
+    }    
 }

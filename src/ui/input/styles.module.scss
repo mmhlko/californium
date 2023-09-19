@@ -10,3 +10,9 @@
 	outline: none;
 	border: 1px solid transparent;
 };
+
+@media (max-width: 480px) {
+    .input {
+		width: 100%;
+	};
+}

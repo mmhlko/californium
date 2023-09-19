@@ -4,7 +4,7 @@ import s from './styles.module.scss';
 import { ReactComponent as LongArrow } from "../../assets/icons/long-arrow.svg"
 
 type TButtonProps = {
-    children: ReactNode,
+    children?: ReactNode,
     action?: () => void,
     htmlType?: "button" | "submit" | "reset",
     extraClass?: string,

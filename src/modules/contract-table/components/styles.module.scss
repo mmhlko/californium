@@ -11,7 +11,7 @@
 }
 .search {
     position: relative;
-
+    
     .search__magnifier_btn {
         position: absolute;
         right: 20px;
@@ -32,3 +32,14 @@
 
 }
 
+
+@media (max-width: 480px) {
+    .search {
+        flex: 1;
+    }
+    .sortings {
+        display: none;
+        width: 0;
+        height: 0;    
+    }
+}

@@ -1,11 +1,17 @@
 .scroll_table {
     margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
 }
 
 .scroll_table_body {
-    height: 560px;
+    //height: 560px;
+    width: 100%;
     overflow-x: auto;
     border-radius: 7px;
+    
+    * {color: var(--text-04);}
 }
 
 .scroll_table table {
@@ -18,6 +24,7 @@
 }
 
 .scroll_table thead th {
+    height: 58px;
     font-weight: bold;
     text-align: left;
     border: none;
@@ -38,6 +45,7 @@
 }
 
 .scroll_table tbody td {
+    height: 90px;
     text-align: left;
     font-size: 14px;
     vertical-align: top;
@@ -45,15 +53,15 @@
 }
 
 .scroll_table thead th,
-.scroll_table tbody td {
-    height: 90px;
-    padding: 18px 22px;
+.scroll_table tbody td {    
+    padding: 18px 22px 13px 22px;
     border-left: 1px solid var(--button-border-grey);
     text-align: center;
     vertical-align: middle;
     font-size: 18px;
     letter-spacing: -0.342px;
     font-weight: 300;
+    color: inherit;
 }
 
 .scroll_table thead th:last-child,
@@ -77,4 +85,27 @@
     line-height: 150%;
     /* 27px */
     letter-spacing: -0.342px;
+}
+
+
+@media (max-width: 480px) {
+    .status_column, .date_column {
+        display: none;
+    }
+    .hide {
+        display: none !important;
+    }
+    .scroll_table thead th span {
+        font-size: 16px;
+    }
+    .scroll_table thead td span {
+        font-size: 14px;
+    }
+    .scroll_table thead th,
+    .scroll_table tbody td {
+        padding: 14px 15px;
+    }
+    .scroll_table tbody td {
+        height: 48px !important;
+    }
 }

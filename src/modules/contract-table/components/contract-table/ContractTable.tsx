@@ -6,53 +6,41 @@ import { ReactComponent as SmartTypeSvg } from "../../assets/smart-type.svg"
 import { ReactComponent as WebSvg } from "../../assets/web.svg"
 import { ReactComponent as ChainSvg } from "../../assets/chain.svg"
 import { ReactComponent as Download } from "../../../../assets/icons/useability/download.svg"
-
-
-
-type TTableItem = { title: string, status: string, date: string, smartType: string, web: string, url: string };
-type TTableData = TTableItem[]
-
-const tableData: TTableData = [
-    { title: "KFvH0102cvd", status: "Deployed", date: "12 июля 2023", smartType: "Type of smart-contract", web: "Ethereum", url: "url" },
-    { title: "KFvH0102cvd", status: "Deployed", date: "12 июля 2022", smartType: "Type of smart-contract", web: "Ethereum", url: "url" },
-    { title: "KFvH0102cvd", status: "Deployed", date: "12 июля 2023", smartType: "Type of smart-contract", web: "Ethereum", url: "url" },
-    { title: "KFvH0102cvd", status: "Deployed", date: "12 июля 2023", smartType: "Type of smart-contract", web: "Ethereum", url: "url" },
-    { title: "KFvH0102cvd", status: "Deployed", date: "12 июля 2023", smartType: "Type of smart-contract", web: "Ethereum", url: "url" },
-    { title: "KFvH0102cvd", status: "Deployed", date: "12 июля 2023", smartType: "Type of smart-contract", web: "Ethereum", url: "url" },
-    { title: "KFvH0102cvd", status: "Deployed", date: "12 июля 2023", smartType: "Type of smart-contract", web: "Ethereum", url: "url" },
-    { title: "KFvH0102cvd", status: "Deployed", date: "12 июля 2023", smartType: "Type of smart-contract", web: "Ethereum", url: "url" },
-    { title: "KFvH0102cvd", status: "Deployed", date: "12 июля 2023", smartType: "Type of smart-contract", web: "Ethereum", url: "url" },
-    { title: "KFvH0102cvd", status: "Deployed", date: "12 июля 2023", smartType: "Type of smart-contract", web: "Ethereum", url: "url" },
-]
+import { useMediaQueries } from '../../../../hooks/useMediaQuery';
+import { tableData } from '../../constants/tableData';
+import { CreateContractButton } from '../../../../components/create-contract-button/CreateButton';
 
 export const Table = () => {
+    const { xs } = useMediaQueries();
+
     return (
         <div className={s.scroll_table}>
             <div className={s.scroll_table_body}>
                 <table>
                     <thead>
                         <tr>
-                            <th><span><PenSvg />Название</span></th>
-                            <th><span><StatusSvg />Статус</span></th>
-                            <th><span><DateSvg />Дата создания</span></th>
-                            <th><span><SmartTypeSvg />Тип смарт контракта</span></th>
-                            <th><span><WebSvg />Сеть</span></th>
-                            <th><span><ChainSvg />Сертификат</span></th>
+                            <th className={s.name_column}><span><PenSvg className={s.hide} />Название</span></th>
+                            <th className={s.status_column}><span><StatusSvg className={s.hide} />Статус</span></th>
+                            <th className={s.date_column}><span><DateSvg className={s.hide} />Дата создания</span></th>
+                            <th className={s.smartType_column}><span><SmartTypeSvg className={s.hide} />{`Тип ${!xs ? "смарт контракта" : ""}`}</span></th>
+                            <th className={s.web_column}><span><WebSvg className={s.hide} />Сеть</span></th>
+                            <th className={s.download_web_column}><span><ChainSvg /><span className={s.hide}>Сертификат</span></span></th>
                         </tr>
                     </thead>
                     <tbody>
                         {tableData.map(item => 
                             <tr>
-                                <td>{item.title}</td>
-                                <td>{item.status}</td>
-                                <td>{item.date}</td>
-                                <td>{item.smartType}</td>
-                                <td>{item.web}</td>
-                                <td><a href={item.url} className={s.download_link}><Download />Скачать</a></td>
+                                <td className={s.name_column}>{xs ? item.title.short : item.title.long}</td>
+                                <td className={s.status_column}>{item.status}</td>
+                                <td className={s.date_column}>{item.date}</td>
+                                <td className={s.smartType_column}>{xs ? item.smartType.short : item.smartType.long}</td>
+                                <td className={s.web_column}>{xs ? item.web.short : item.web.long}</td>
+                                <td className={s.download_web_column}><a href={item.url} className={s.download_link}><Download /><span className={s.hide}>Скачать</span></a></td>
                             </tr>)}
                     </tbody>
                 </table>
             </div>
+            <CreateContractButton />
         </div>
 
     )

@@ -39,11 +39,11 @@ body {
 #root {
   min-height: 100vh;
   background-color: var(--background-color);
-  padding: 22px 0;
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  align-items: center;
 }
 header, footer {
   z-index: 10;
@@ -89,3 +89,20 @@ a {
   color: var(--text-03);
 }
 
+@media (max-width: 480px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .step {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--text-02);
+  }
+}
+@media (min-width: 481px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}

@@ -1,0 +1,26 @@
+.navigation {
+    margin: 32px 0;
+    ul {
+        display: flex;
+        * {
+            color: var(--text-02);
+            transition: all 0.1s ease;
+        }    
+        .sepatator {
+            padding: 0 10px;
+        }
+        a:hover {
+            color: var(--text-01);;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .navigation {
+        margin: 25px 0 24px 0;
+        * {
+            font-size: 14px;
+        }
+    }
+    
+}

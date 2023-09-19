@@ -50,3 +50,16 @@
         }
     }
 }
+
+@media (max-width: 480px) {
+    .metamask_panel_wrapper {
+        width: 343px;
+        margin-bottom: 23px;
+        font-size: 16px;
+        .connect_btn {
+            span {
+                font-size: 20px;
+            }
+        }
+    }   
+}

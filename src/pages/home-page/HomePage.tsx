@@ -12,7 +12,7 @@ const HomePage = () => {
     return (
         <>
             <ContentHeader title="Смарт-контракты">
-                <CreateContractButton />
+                <CreateContractButton minimised/>
             </ContentHeader>
             <ContractTable />
         </>

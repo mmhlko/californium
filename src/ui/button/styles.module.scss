@@ -45,3 +45,19 @@ button:disabled {
     background: var(--background-color-secondary);
     cursor: default;
 }
+
+@media (max-width: 480px) {
+    .button {
+        max-width: 100%;
+        flex: 1;
+        justify-content: center;
+    }
+    .connect_btn {
+        height: 41px;
+        padding: 10px 16px;
+        span {
+            font-size: 14px;
+        }
+    } 
+
+}

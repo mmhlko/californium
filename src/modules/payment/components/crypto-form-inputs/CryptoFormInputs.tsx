@@ -1,11 +1,11 @@
 import classNames from "classnames";
-import { Input } from "../../../../ui/input/Input"
+import { Input } from "../../../../ui/input/Input";
 import s from './styles.module.scss';
 import { TPaymentInput } from "../Payment";
 import { InputType, InputVariety } from "../../types/types";
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, useState } from "react";
 import { useAppSelector } from "../../../../storage/hookTypes";
-import { ReactComponent as CopyBtnSvg } from "../../assets/copy-btn.svg"
+import { ReactComponent as CopyBtnSvg } from "../../assets/copy-btn.svg";
 
 
 type CryptoFormInputsProps = {

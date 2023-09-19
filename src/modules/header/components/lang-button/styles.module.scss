@@ -16,5 +16,11 @@
         align-items: center;
         gap: 2px;
     }
+}
 
+@media (max-width: 480px) {
+    .selector {
+        width: 68px;
+        padding: 8px 14px;
+    } 
 }

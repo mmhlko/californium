@@ -5,6 +5,8 @@ import { ContractTypeList } from "../../modules/contract-type-list/components/Co
 import { WebList } from "../../modules/web-list/components/WebList";
 import { Payment } from "../../modules/payment";
 import { Button } from "../../ui/button/Button";
+import { BreadCrumbs } from "../../components/bread-crumbs/BreadCrumbs";
+import { routePath } from "../../app/providers/AppRouter";
 
 
 const CreateContractPage = () => {
@@ -55,7 +57,8 @@ const CreateContractPage = () => {
     },[])
 
     return (
-        <>
+        <>  
+            <BreadCrumbs title="Создать контракт" url={routePath.createСontract} sepatator="/"/>
             {renderSwitch()}
         </>
     )

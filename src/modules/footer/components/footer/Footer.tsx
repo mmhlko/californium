@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import s from "./styles.module.scss";
 import { routePath } from "../../../../app/providers/AppRouter";
+import classNames from "classnames";
 
 export const Footer = () => {
     return(
-        <footer className={s.wrapper}>
+        <footer className={classNames(s.footer, "container")}>
             <nav className={s.navigation}>
                 <ul className={s.list}>
                 <li className={s.link}><Link to={routePath.metamask}>Metamask</Link></li>

@@ -4,3 +4,15 @@
     gap: 16px;
     margin: 55px 0;
 }
+
+@media (max-width: 480px) {
+    .button_back {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 23px 0;
+        max-width: 183px;
+        justify-content: center;
+        text-align: center;
+    }  
+}
