@@ -1,0 +1,47 @@
+.button {
+    padding: 16px 22px;
+    border-radius: 7px;
+    background: var(--color-blue);
+    border: none;
+    cursor: pointer;
+    color: var(--button-text-color);
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: -0.342px;
+    max-width: max-content;
+    display: flex;
+    gap: 13px;
+    align-items: center;
+
+    .arrow_next {
+        transform: rotate(180deg);
+    }
+}
+.contract_btn {
+    gap: 20px;
+    background-color: var(--background-color-secondary);
+}
+.logout_btn {
+    gap: 11px;
+    background-color: var(--background-color-secondary);
+}
+.lang_btn {
+    padding: 11px 17px;
+    border-radius: 7px;
+    border: 1px solid var(--button-border-grey);
+    background-color: transparent;
+}
+.connect_btn {
+    background: radial-gradient(802.82% 288.91% at 35.61% 14.5%, #3244E6 0%, #FFF 100%);
+    display: flex;
+    gap: 11px;
+    align-items: center;
+    svg {
+        position: relative;
+        top: 2px;
+    }
+}
+button:disabled {
+    background: var(--background-color-secondary);
+    cursor: default;
+}

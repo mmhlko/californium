@@ -1,0 +1,24 @@
+.selector {
+    padding: 20px 18px 20px 22px;
+    border-radius: 7px;
+    background: var(--background-color-secondary);
+    border: none;
+    color: var(--button-text-color);
+    outline: none;
+    appearance: none;
+    box-sizing: content-box;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: -0.342px;
+    position: relative;
+    width: 200px; 
+}
+.selector-type-web {
+    width: 161px;
+}
+.selector-type-web {
+    width: 170px
+}
+.selector-type-types {
+    width: 144px
+}

@@ -1,0 +1,26 @@
+:root {
+  /* colors */
+  --color-white: #FFFFFF;
+  --color-black: #000;
+  --color-blue: #3244E6;
+  --background-color: #1E1A1B;
+  --background-color-secondary: #303030;
+  --color-grey: #7b8e98;
+  --button-border-grey: #514E4E;
+  --button-hover-color: #2980b9;
+  --button-text-color: #E0E0E0;
+  --color-input: #00000066;
+
+  --gradient-01: linear-gradient(180deg, #0EB3B1 0%, #0BAAA8 100%);
+
+  /* border */
+  --border-line: 1px solid rgba(255, 255, 255, 0.5);
+
+  /* fonst */
+  --base-font-size: 18px;
+  --text-01: #FFFFFF;;
+  --text-02: #ADADAD;
+  --text-03: #514E4E;
+  --text-04: var(--button-text-color);
+   
+}

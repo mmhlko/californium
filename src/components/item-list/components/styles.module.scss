@@ -1,0 +1,71 @@
+.wrapper {
+    margin-top: 34px;
+    
+    .list {
+        display: grid;
+        row-gap: 18px;
+        column-gap: 18px;            
+    
+        .item {      
+            position: relative;
+            input {
+                display: none;
+            }
+            label {
+                background-color: var(--background-color-secondary);
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                transition: background-color 0.1s ease-in;                
+                cursor: pointer;
+                span {
+                    display: flex;
+                    align-items: center;
+                    gap: 28px;
+                }    
+            }
+            input:checked+label {
+                background-color: var(--color-blue);
+            }
+            input:checked+label::after {
+                content: url("../assets/check-icon.svg");
+                display: block;
+                position: absolute;
+            }
+        }
+        .item-contract {
+            label {
+                height: 72px;
+                padding-left: 32px;
+                padding-right: 12px;
+                font-size: 24px;
+            }
+            input:checked+label::after {
+                width: 33px;
+                height: 33px;
+                right: 12px;
+            }
+        }
+        .item-web {
+            label {
+                height: 137px;
+                padding-left: 30px;
+                padding-right: 12px;
+                font-size: 20px;
+            }
+            input:checked+label::after {
+                width: 33px;
+                height: 33px;
+                right: 12px;
+                top: 12px;
+            }
+        }
+    }
+    .list-contract {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    .list-web {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+

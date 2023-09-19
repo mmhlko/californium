@@ -1,0 +1,44 @@
+.wrapper {
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    overflow: hidden;
+
+    .backgroundBlur {
+        display: flex;
+        flex-direction: column;
+        backdrop-filter: blur(3px);
+        background: rgba(0, 0, 0, 0.69);
+        padding: 50px 44px 34px 44px;
+        width: 100%;
+
+        .article_number {
+            margin-bottom: 36px;
+            color: var(--text-02)
+        }
+
+        .title {
+            margin-bottom: 22px;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 104%;
+            position: relative;
+            max-width: max-content;
+
+            svg {
+                position: absolute;
+                top: 6px;
+                right: -46px;
+            }
+        }
+
+        .content {
+            margin-bottom: 45px;
+            color: var(--text-02);
+            flex: 1;
+        }
+    }
+}

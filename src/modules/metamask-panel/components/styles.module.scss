@@ -1,0 +1,52 @@
+.metamask_panel_wrapper {
+    padding: 38px 29px 34px 29px;
+    margin-bottom: 62px;
+    width: 380px;
+    height: 444px;
+    border-radius: 37px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12.5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 27px;
+    position: relative;
+
+    img {
+        height: 300px;
+        object-fit: none;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        pointer-events: none;
+    }
+
+    .subtitle {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 117%;
+        letter-spacing: -0.44px;
+    }
+
+    .connect_btn {
+        padding: 22px 32px;
+        width: 100%;
+        max-width: 296px;
+        border-radius: 10px;
+        background: radial-gradient(210.37% 144.72% at 35.61% 14.5%, #3244E6 0%, #FFF 100%);
+        cursor: pointer;
+        border: none;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+
+        span {
+            font-size: 24px;
+            font-weight: 700;
+        }
+    }
+}

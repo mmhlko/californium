@@ -1,0 +1,2 @@
+export const SET_CONTRACT_TYPE = "SET_CONTRACT_TYPE";
+export const SET_WEB_TYPE = "SET_WEB_TYPE";

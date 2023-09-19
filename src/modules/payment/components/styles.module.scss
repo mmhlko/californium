@@ -1,0 +1,64 @@
+.form {
+
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+    margin: 52px 0 108px 0;
+
+    .inputs_wrapper {
+        flex-grow: 1;
+        display: grid;
+        column-gap: 20px;
+        row-gap: 26px;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+        .input_item {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-self: flex-end;
+
+            input {
+                width: 100%;
+            }
+            &_wide {
+                grid-column: 1 / -1;
+            }
+        }
+    }
+
+    .payment_wrapper{
+        
+        display: flex;
+        flex-direction: column;
+        align-items: start;  
+        gap: 12px;  
+        min-width: 352px;    
+
+        .payment_content{
+            flex-grow: 1;
+            width: 100%;
+            max-height: 352px;
+            display: flex;
+            flex-direction: column;
+            padding: 32px;
+            border-radius: 10px;
+            background-color: var(--background-color-secondary);
+            gap: 27px;
+
+            .payment_title{
+                font-size: 20px;
+            }
+            .payment_cost{
+                font-size: 36px;
+                font-weight: 700;
+                flex-grow: 1;
+            }
+        }
+    }
+
+    .chain_label {
+        font-size: 20px;
+        line-height: 104%;
+    }
+}

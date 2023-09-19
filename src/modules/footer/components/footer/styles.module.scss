@@ -1,0 +1,24 @@
+.wrapper {
+    height: 216px;
+    border-top: var(--border-line);
+    padding-top: 47px;
+    z-index: 10;       
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 56px;
+
+    * {
+        color: rgb(255, 255, 255, 0.5);
+    }
+
+    .list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 74px;           
+        
+    }
+}

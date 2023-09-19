@@ -1,0 +1,20 @@
+.selector {
+    width: 86px;
+    padding: 11px 17px;
+    border-radius: 7px;
+    background: var(--background-color-secondary);
+    border: 1px solid var(--button-border-grey);
+    color: var(--button-text-color);
+    outline: none;
+    appearance: none;
+    box-sizing: content-box;
+    font-size: 18px;
+    position: relative;
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+    }
+
+}

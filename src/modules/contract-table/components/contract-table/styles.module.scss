@@ -1,0 +1,80 @@
+.scroll_table {
+    margin-top: 50px;
+}
+
+.scroll_table_body {
+    height: 560px;
+    overflow-x: auto;
+    border-radius: 7px;
+}
+
+.scroll_table table {
+    width: 100%;
+    table-layout: auto;
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 2px;
+    color: var(--button-text-color);
+}
+
+.scroll_table thead th {
+    font-weight: bold;
+    text-align: left;
+    border: none;
+    padding: 10px 15px;
+    background: var(--background-color-secondary);
+}
+
+.scroll_table thead th svg {
+    flex-shrink: 0;
+}
+
+.scroll_table thead th span {
+    display: flex;
+    gap: 13px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.scroll_table tbody td {
+    text-align: left;
+    font-size: 14px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--button-border-grey)
+}
+
+.scroll_table thead th,
+.scroll_table tbody td {
+    height: 90px;
+    padding: 18px 22px;
+    border-left: 1px solid var(--button-border-grey);
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18px;
+    letter-spacing: -0.342px;
+    font-weight: 300;
+}
+
+.scroll_table thead th:last-child,
+.scroll_table td:last-child {
+    border-right: 1px solid var(--button-border-grey)
+}
+
+/* Стили для скролла */
+::-webkit-scrollbar {
+    appearance: none;
+    display: none;
+}
+
+.download_link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: #4F4F4F;
+    font-weight: 700;
+    line-height: 150%;
+    /* 27px */
+    letter-spacing: -0.342px;
+}

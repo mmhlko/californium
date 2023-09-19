@@ -1,0 +1,11 @@
+.connect_btn {
+    background: radial-gradient(802.82% 288.91% at 35.61% 14.5%, #3244E6 0%, #FFF 100%);
+    color: var(--color-white);
+    height: 52px;
+    gap: 9px;
+
+    svg {
+        position: relative;
+        top: 2px
+    }
+}
