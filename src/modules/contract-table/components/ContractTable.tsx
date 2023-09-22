@@ -4,7 +4,7 @@ import { Table } from './contract-table/ContractTable';
 import { ReactComponent as SearchIcon } from "../assets/octicon_search-16.svg"
 import { FormEvent, useState } from 'react';
 import { NotContractFound } from './not-contracts-found/NotContractFound';
-import { Selector } from '../../../components/selector/Selector';
+import { Selector, SelectorOptions } from '../../../components/selector/Selector';
 
 const WEB_OPTIONS_1 = [
     { value: "web1", label: "Все сети 0" },
@@ -45,9 +45,9 @@ export const ContractTable = () => {
         <div className={s.wrapper}>
             <div className={s.header}>
                <div className={s.sortings}>
-                <Selector options={WEB_OPTIONS_1} type="web" />
-                <Selector options={WEB_OPTIONS_2} type="status"/>
-                <Selector options={WEB_OPTIONS_3} type="types"/>
+                <Selector options={WEB_OPTIONS_1} type={SelectorOptions.web} />
+                <Selector options={WEB_OPTIONS_2} type={SelectorOptions.status}/>
+                <Selector options={WEB_OPTIONS_3} type={SelectorOptions.types}/>
                 <button style={{backgroundColor: "inherit"}} onClick={() => setTableData(!tableData)}>Set table</button>
                 </div>
                 <form className={s.search} onSubmit={handleFormSubmit}>
