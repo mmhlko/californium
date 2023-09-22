@@ -1,8 +1,10 @@
 import Select, { SingleValue, components } from 'react-select'
 import s from './styles.module.scss';
 import "./custom.scss"
-import { useState } from 'react';
 import classNames from 'classnames';
+import { ListType } from '../item-list/components/ItemList';
+import { useDispatch } from 'react-redux';
+import { setContractTypeAction } from '../../storage/contract/contractReducer';
 
 type Option = {
     value: string,
@@ -11,17 +13,23 @@ type Option = {
 
 type SortSelectProps = {
     options: Option[],
-    type: "web" | "status" | "types"
+    type: "web" | "status" | "types" | "contract"
 }
 
 const Input = (inputProps: any) => <components.Input {...inputProps} autoComplete="nope" /> //убирает автозаполнение
 
-export const SortSelect = ({options, type}:SortSelectProps) => {
+export const Selector = ({options, type}:SortSelectProps) => {
 
-    const [value, setValue] = useState(options[0]);
-
+    const dispatch = useDispatch();
     const onChange = (option:SingleValue<Option>) => {
-        console.log(option?.value)
+        switch (type) {
+            case ListType.contract:
+                (option?.label && option.value) && 
+                dispatch(setContractTypeAction({value: option.value, label:option.label}))
+                break;        
+            default:
+                break;
+        }
     }
 
     return (
@@ -30,12 +38,12 @@ export const SortSelect = ({options, type}:SortSelectProps) => {
             <Select 
                 classNamePrefix="custom-select"
                 className={classNames(s.selector, s[`selector-type-${type}`])} 
-                defaultValue={value}
+                placeholder="Выберити ти контракта"
                 options={options}
                 isSearchable={false}
                 autoFocus={false}
                 components={{ Input }}
-                onChange={onChange}
+                onChange={onChange}                
             />
         </>
     )

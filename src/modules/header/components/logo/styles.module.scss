@@ -1,0 +1,15 @@
+.logo_wrapper {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+@media (max-width: 480px) {
+    .logo_big {
+        width: 90px;
+    }
+    .logo_small {
+        width: 23px;
+        height: 23px;
+    }
+}

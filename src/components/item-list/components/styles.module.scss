@@ -22,6 +22,9 @@
                     display: flex;
                     align-items: center;
                     gap: 28px;
+                }
+                svg {
+                    width: 30px;
                 }    
             }
             input:checked+label {
@@ -69,3 +72,23 @@
     }
 }
 
+@media (max-width: 480px) {
+    .wrapper {
+        .list {
+            .item-web {
+                label {
+                    height: 72px;
+                    padding-left: 18px;
+                    padding-right: 20px;
+                    font-size: 24px;
+                }
+                input:checked+label::after {
+                    width: 33px;
+                    height: 33px;
+                    right: 20px;
+                    top: auto;
+                }
+            }
+        }
+    }
+}

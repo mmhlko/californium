@@ -1,5 +1,4 @@
 import { SET_CONTRACT_TYPE, SET_WEB_TYPE } from "./constants";
-import { ReactNode } from 'react';
 
 export type TContractActions = TSetContractTypeAction | TSetWebTypeAction;
 
@@ -17,5 +16,5 @@ export type TContractState = {
     webType: string
 }
 
-export type TContractTypes = {label: ReactNode, value: string}[];
+export type TContractTypes = {label: string, value: string}[];
 export type TContractTypeItem = {label: string, value: string};

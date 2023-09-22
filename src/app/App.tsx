@@ -7,6 +7,7 @@ import AppRouter, { routePath } from "./providers/AppRouter";
 const App = () => {
     const location = useLocation();    
     const metamaskBg = location.pathname === routePath.metamask
+    
     return (
         <>
             <Header />
@@ -14,7 +15,7 @@ const App = () => {
                 <AppRouter />
             </main>
             <Footer />
-            {metamaskBg && <MetamaskBackGround />}
+            {/* {metamaskBg && <MetamaskBackGround />} */}
         </>
     )
 }

@@ -1,6 +1,8 @@
 import { ContentHeader } from "../../../components/content-header/ContentHeader";
 import { ItemList } from "../../../components/item-list";
 import { ListType } from "../../../components/item-list/components/ItemList";
+import { Selector } from "../../../components/selector/Selector";
+import { useMediaQueries } from "../../../hooks/useMediaQuery";
 import { TContractTypes } from "../../../storage/contract/types";
 import s from './styles.module.scss';
 
@@ -18,12 +20,18 @@ export const CONTRACT_TYPES:TContractTypes = [
 
 export const ContractTypeList = () => {
 
+    const { sm } = useMediaQueries();
+
     return (
         <section className={s.contract_list_wrapper}>
             <ContentHeader title="Выберите тип контракта">
                 <span className="step">{"ШАГ (2 / 4)"}</span>
             </ContentHeader>
-            <ItemList type={ListType.contract} list={CONTRACT_TYPES} />
+            {!sm 
+                ? <ItemList type={ListType.contract} list={CONTRACT_TYPES} />
+                : <Selector type={ListType.contract} options={CONTRACT_TYPES}/> 
+            }
+            
         </section>
     )
 }
