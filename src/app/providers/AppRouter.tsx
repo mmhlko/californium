@@ -1,4 +1,4 @@
-import {Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import HomePage from "../../pages/home-page/HomePage";
 import CreateContractPage from "../../pages/create-contract-page/CreateContractPage";
 import NotFoundPage from "../../pages/not-found-page/NotFoundPage";
@@ -12,13 +12,14 @@ export const routePath = {
 }
 
 const AppRouter = () => {
+
     return (
         <>
             <Routes>
-                <Route path={routePath.metamask} element={<MetamaskPage/>}/>
-                <Route path={routePath.home} element={<HomePage/>}/>
-                <Route path={routePath.createСontract} element={<CreateContractPage/>}/>
-                <Route path={routePath.notFound} element={<NotFoundPage/>}/>
+                <Route path={routePath.metamask} element={<MetamaskPage />} />
+                <Route path={routePath.home} element={<HomePage />} />
+                <Route path={routePath.createСontract} element={<CreateContractPage />} />
+                <Route path={routePath.notFound} element={<NotFoundPage />} />
             </Routes>
         </>
     );

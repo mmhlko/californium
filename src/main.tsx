@@ -8,8 +8,9 @@ import store from './storage/store'
 
 //const Router = import.meta.env.DEV ? BrowserRouter : HashRouter;
 console.log("is DEV", import.meta.env.DEV);
+export const root = document.getElementById("root")
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(root!).render(
     <React.StrictMode>
         <Provider store={store}>
             <HashRouter>

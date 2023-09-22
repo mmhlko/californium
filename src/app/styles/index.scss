@@ -45,9 +45,12 @@ body {
   overflow: hidden;
   align-items: center;
 }
-header, footer {
-  z-index: 10;
+#root.metamask {
+  background-image: url("../../assets//images/bg.jpg");
+  background-size: cover;
+  background-position: center;
 }
+
 main {
   flex-grow: 1;
   display: flex;

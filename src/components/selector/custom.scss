@@ -10,6 +10,9 @@
         width: 100% !important;
         &--menu-is-open &__option {
             background-color: inherit !important;
+        }
+        * {
+            color: var(--button-text-color) !important;
         } 
     }
     &__control:hover {
@@ -19,7 +22,7 @@
         }
     }
     &__indicator {
-        padding: 0 !important;
+        padding: 0 !important;        
     }
     &__indicator-separator {
         display: none !important;

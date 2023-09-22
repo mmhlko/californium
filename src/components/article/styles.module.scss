@@ -39,12 +39,13 @@
             color: var(--text-02);
             flex: 1;
         }
+
         button {
             max-width: max-content;
         }
-
     }
 }
+
 @media (min-width: 481px) {
     .backgroundBlur {
         padding: 50px 44px 34px 44px;
@@ -55,16 +56,25 @@
     .wrapper {
         .backgroundBlur {
             padding: 21px 21px 33px 21px;
+
             .article_number {
                 margin-bottom: 17px;
             }
+
             .title {
                 font-size: 18px;
                 margin-bottom: 17px;
+
+                svg {
+                    top: -4px;
+                    right: -38px;
+                }
             }
-            .content, .article_number {
+
+            .content,
+            .article_number {
                 font-size: 14px;
             }
         }
-    }    
+    }
 }

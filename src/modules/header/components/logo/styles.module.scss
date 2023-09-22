@@ -1,7 +1,11 @@
-.logo_wrapper {
+.logo_link {
     display: flex;
-    gap: 15px;
-    align-items: center;
+    
+    .logo_wrapper {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -11,5 +15,9 @@
     .logo_small {
         width: 23px;
         height: 23px;
+        &_metamask {
+            width: 40px;
+            height: 40px;
+        }
     }
 }

@@ -1,13 +1,19 @@
 import { useLocation } from "react-router-dom";
-import { MetamaskBackGround } from "../components/metamask-background/MetamaskBackGround";
 import { Footer } from "../modules/footer";
 import { Header } from "../modules/header";
 import AppRouter, { routePath } from "./providers/AppRouter";
+import { useEffect } from "react";
+import { root } from "../main";
 
 const App = () => {
-    const location = useLocation();    
-    const metamaskBg = location.pathname === routePath.metamask
-    
+
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scroll({top: 0})
+        location.pathname === routePath.metamask ? root?.classList.add("metamask") : root?.classList.remove("metamask")
+    }, [location.pathname])
+
     return (
         <>
             <Header />

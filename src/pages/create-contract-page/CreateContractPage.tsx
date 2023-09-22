@@ -7,6 +7,7 @@ import { Payment } from "../../modules/payment";
 import { Button } from "../../ui/button/Button";
 import { BreadCrumbs } from "../../components/bread-crumbs/BreadCrumbs";
 import { routePath } from "../../app/providers/AppRouter";
+import { Modal } from "../../components/modal/Modal";
 
 
 const CreateContractPage = () => {
@@ -54,11 +55,11 @@ const CreateContractPage = () => {
 
     useEffect(()=>{
         window.scrollTo({top: 0});
-    },[])
+    },[renderSwitch])
 
     return (
         <>  
-            <BreadCrumbs title="Создать контракт" url={routePath.createСontract} sepatator="/"/>
+            <BreadCrumbs title="Создать контракт" url={routePath.createСontract} sepatator="/"/>            
             {renderSwitch()}
         </>
     )
