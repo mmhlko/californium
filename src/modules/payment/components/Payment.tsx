@@ -12,7 +12,8 @@ export type TPaymentInput = {
     placeHolder: string,
     type: InputType,
     wide: boolean,
-    variety?: InputVariety
+    variety?: InputVariety,
+    alone: boolean
 }
 
 export const Payment = () => {
@@ -25,27 +26,20 @@ export const Payment = () => {
         e.preventDefault();
     }
 
-    const returnCryptoFormInputs = () => {       
-
-        switch (contractTypeValue) {
-            case ContractTypes.ERC20:
-                return <CryptoFormInputs inputList={contractInputsData[ContractTypes.ERC20]} />
-            case ContractTypes.ICO:
-                return <CryptoFormInputs inputList={contractInputsData[ContractTypes.ICO]} />
-            case ContractTypes.DAO:
-                return <CryptoFormInputs inputList={contractInputsData[ContractTypes.DAO]} />
-            case ContractTypes.NFT_ERC721:
-                return <CryptoFormInputs inputList={contractInputsData[ContractTypes.NFT_ERC721]} />
-            case ContractTypes.VESTING:
-                return <CryptoFormInputs inputList={contractInputsData[ContractTypes.VESTING]} />
-            case ContractTypes.STAKING:
-                return <CryptoFormInputs inputList={contractInputsData[ContractTypes.STAKING]} />
-            case ContractTypes.LOTTERY:
-                return <CryptoFormInputs inputList={contractInputsData[ContractTypes.LOTTERY]} />
-            default:
-                setErrorMessage("Модуль в разработке");
-                break;
+    const returnCryptoFormInputs = () => {  
+        let error = '';        
+        for (let key in ContractTypes) {            
+            switch (contractTypeValue) {
+                case ContractTypes[key]: {
+                    error = ''
+                    return <CryptoFormInputs inputList={contractInputsData[ContractTypes[key]]} />
+                }                    
+                default:
+                    error = "Модуль в разработке"
+                    break;
+            }
         }
+        setErrorMessage(error)
     }
 
     return (

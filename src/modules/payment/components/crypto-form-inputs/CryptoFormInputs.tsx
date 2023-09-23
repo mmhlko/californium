@@ -7,7 +7,6 @@ import { ChangeEvent, useState } from "react";
 import { useAppSelector } from "../../../../storage/hookTypes";
 import { ReactComponent as CopyBtnSvg } from "../../assets/copy-btn.svg";
 
-
 type CryptoFormInputsProps = {
     inputList: TPaymentInput[]
 }
@@ -30,7 +29,6 @@ export const CryptoFormInputs = ({ inputList }: CryptoFormInputsProps) => {
     const handleCopyWalletClick = () => {
         navigator.clipboard.writeText(walletNumber)
     }
-
     const InputNumber = () => {
         return (
             <div className={classNames(s.input_number)}>
@@ -62,7 +60,7 @@ export const CryptoFormInputs = ({ inputList }: CryptoFormInputsProps) => {
     return (
         <div className={s.inputs_wrapper}>
             {inputList.map((item, index) => (
-                <div className={classNames(s.input_item, item.wide && s.input_item_wide)} key={index}>
+                <div className={classNames(s.input_item, {[s.input_item_wide]:item.wide, [s.input_item_alone]:item.alone})} key={index}>
                     <span className={s.chain_label}>{item.title}</span>
                     {item.variety !== InputVariety.number
                         ? item.type === InputType.checkbox

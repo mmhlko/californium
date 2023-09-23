@@ -18,7 +18,14 @@
         &_wide {
             grid-column: 1 / -1;
         }
+        &_alone {
+            grid-column: 1 / -1;
+            span, input {
+                width: 50%;
+            }
+        }
     }
+    
 }
 
 .chain_label {
