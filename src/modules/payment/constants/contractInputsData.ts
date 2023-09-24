@@ -36,7 +36,7 @@ export const contractInputsData:TContractInputsData = {
     [ContractTypes.LOTTERY]: [
         { title: "Ticket price", placeHolder: "Enter the ticket price", type: InputType.text, wide: false, alone: false, variety: InputVariety.general },
         { title: "Winners Count", placeHolder: "Enter number of winners", type: InputType.text, wide: false, alone: false, variety: InputVariety.general },
-        { title: "Owner address", placeHolder: "0x7a7a85e3cb5cc470fe419b3d79eefee128ba7da2", type: InputType.text, wide: true, alone: false, variety: InputVariety.general },
+        { title: "Owner address", placeHolder: "0x7a7a85e3cb5cc470fe419b3d79eefee128ba7da2", type: InputType.text, wide: true, alone: false, variety: InputVariety.wallet },
         { title: "Percentage of winners", placeHolder: "", type: InputType.number, wide: true, alone: false, variety: InputVariety.number },
     ],
     [ContractTypes.VESTING]: [

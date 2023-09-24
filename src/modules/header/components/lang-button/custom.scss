@@ -39,7 +39,8 @@
     }
 
     &__menu {
-        z-index: 1000 !important;
+        position: relative;
+        z-index: 10 !important;
         left: 0 !important;
         background-color: inherit !important;
         color: var(--text-02) !important;

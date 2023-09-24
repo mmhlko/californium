@@ -10,7 +10,7 @@ export const Footer = () => {
                 <ul className={s.list}>
                 <li className={s.link}><Link to={routePath.metamask}>Metamask</Link></li>
                     <li className={s.link}><Link to={routePath.home}>Главная страница</Link></li>
-                    <li className={s.link}><Link to={"#"}>Политика конфенденциальности</Link></li>
+                    <li className={s.link}><Link to={"#"}>Политика конфинденциальности</Link></li>
                     <li className={s.link}><Link to={"#"}>Договор оферты</Link></li>
                     <li className={s.link}><Link to={"#"}>Написать нам</Link></li>
                 </ul>

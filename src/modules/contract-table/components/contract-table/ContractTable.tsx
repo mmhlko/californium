@@ -28,8 +28,8 @@ export const Table = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {tableData.map(item => 
-                            <tr>
+                        {tableData.map((item, index) => 
+                            <tr key={`${item.title, index}`}>
                                 <td className={s.name_column}>{xs ? item.title.short : item.title.long}</td>
                                 <td className={s.status_column}>{item.status}</td>
                                 <td className={s.date_column}>{item.date}</td>
