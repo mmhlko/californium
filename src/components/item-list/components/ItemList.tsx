@@ -4,6 +4,7 @@ import classNames from "classnames";
 import { useDispatch } from "react-redux";
 import { setContractTypeAction, setWebTypeAction } from "../../../storage/contract/contractReducer";
 import { TContractTypeItem, TContractTypes } from "../../../storage/contract/types";
+import { walletConnectionChange } from "../../../../scripts/web3";
 
 
 export enum ListType {
@@ -28,6 +29,8 @@ export const ItemList = ({ list, type }: ContractTypeListProps) => {
                 break;
             case ListType.web:
                 dispatch(setWebTypeAction(e.currentTarget.value))
+                walletConnectionChange(e.currentTarget.value)
+
                 break;
             default:
                 break;

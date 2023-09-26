@@ -17,17 +17,17 @@ import { ReactComponent as Arbitrium} from "../../../assets/icons/crypto/arbitru
 import { ReactComponent as Chia} from "../../../assets/icons/crypto/chia-network-xch-logo.svg";
 
 export const WEB_TYPES:TContractTypes = [
-    {label: <span><BSC />Binance Smart Chain</span>, value: "bsc"},
-    {label: <span><ETH />Ethereum</span>, value: "eth"},
-    {label: <span><Polygon />Polygon MATIC</span>, value: "bsc2"},
+    {label: <span><BSC />Binance Smart Chain</span>, value: "binance"},
+    {label: <span><ETH />Ethereum</span>, value: "ethereum"},
+    {label: <span><Polygon />Polygon MATIC</span>, value: "polygon"},
     {label: <span><Aurora />Aurora</span>, value: "aurora"},
     {label: <span><Optomism />Optimism</span>, value: "optimism"},
     {label: <span><Avalanche />Avalanche</span>, value: "avalanche"},
     {label: <span><Mantle />Mantle</span>, value: "mantle"},
     {label: <span><Bitgert />Bitgert</span>, value: "bitgert"}, 
-    {label: <span><Kawa />Kawa Networks</span>, value: "kawaNetworks"},
-    {label: <span><Metis />Metis Andromeda Mainnet</span>, value: "mam"},   
-    {label: <span><Arbitrium />Arbitrium One</span>, value: "arbitriumOne"},   
+    {label: <span><Kawa />Kawa Networks</span>, value: "kawa"},
+    {label: <span><Metis />Metis Andromeda Mainnet</span>, value: "metis"},   
+    {label: <span><Arbitrium />Arbitrium One</span>, value: "arbitrium"},   
     {label: <span><Chia />Chia networks</span>, value: "chiaNetworks"},  
 ]
 

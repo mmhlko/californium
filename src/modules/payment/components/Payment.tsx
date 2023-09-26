@@ -28,7 +28,7 @@ export const Payment = () => {
 
     const returnCryptoFormInputs = () => {  
         let error = '';        
-        for (let key in ContractTypes) {            
+        for (let key in ContractTypes) {             
             switch (contractTypeValue) {
                 case ContractTypes[key]: {
                     error = ''

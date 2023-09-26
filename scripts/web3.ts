@@ -911,10 +911,10 @@ export async function sendTx() {
   }
 }
 
-export async function walletConnectionChange(event) {
-  chain_name = event.target.id;
+export async function walletConnectionChange(chain) {
+  // chain_name = event.target.id;
 
-  switch (chain_name) {
+  switch (chain) {
     case "binance":
       await window.ethereum.request({
         method: "wallet_addEthereumChain",

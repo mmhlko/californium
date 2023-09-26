@@ -7,12 +7,14 @@ import { ChangeEvent, useState } from "react";
 import { useAppSelector } from "../../../../storage/hookTypes";
 import { ReactComponent as CopyBtnSvg } from "../../assets/copy-btn.svg";
 
+
+
 type CryptoFormInputsProps = {
     inputList: TPaymentInput[]
 }
 
 export const CryptoFormInputs = ({ inputList }: CryptoFormInputsProps) => {
-
+    const [input,setInput] = useState("");
     const [number, setNumber] = useState(1);
     const [checked, setChecked] = useState(false);
     const walletNumber = useAppSelector(state => state.wallet.walletNumber)
@@ -57,6 +59,8 @@ export const CryptoFormInputs = ({ inputList }: CryptoFormInputsProps) => {
         )
     }
 
+    console.log("ssssss",input);
+    
     return (
         <div className={s.inputs_wrapper}>
             {inputList.map((item, index) => (
@@ -67,7 +71,7 @@ export const CryptoFormInputs = ({ inputList }: CryptoFormInputsProps) => {
                             ? <InputCheckBox />
                             : item.variety === InputVariety.wallet
                                 ? <InputWallet item={item}/>
-                                : <Input id={item.title} placeholder={item.placeHolder} type={item.type} />
+                                : <Input id={item.title} placeholder={item.placeHolder} type={item.type} onChange={(event)=>{setInput(event.target.value)}}/>
                         : <InputNumber />
                     }
                 </div>
