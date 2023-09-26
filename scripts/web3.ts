@@ -910,3 +910,253 @@ export async function sendTx() {
     console.error("Error:", error);
   }
 }
+
+export async function walletConnectionChange(event) {
+  chain_name = event.target.id;
+
+  switch (chain_name) {
+    case "binance":
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [
+          {
+            chainId: "0x38",
+            chainName: "Binance Smart Chain Mainnet",
+            rpcUrls: ["https://bsc-dataseed.binance.org/"],
+            nativeCurrency: {
+              symbol: "BNB",
+              decimals: 18,
+            },
+          },
+        ],
+      });
+      localStorage.setItem("chain", "binance");
+      break;
+    case "binanceTestNet":
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [
+          {
+            chainId: "0x61",
+            chainName: "Binance Smart Chain TestNet",
+            rpcUrls: ["https://endpoints.omniatech.io/v1/bsc/testnet/public"],
+            nativeCurrency: {
+              symbol: "tBNB",
+              decimals: 18,
+            },
+          },
+        ],
+      });
+      localStorage.setItem("chain", "binanceTestNet");
+      break;
+    case "avalanche":
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [
+          {
+            chainId: "0xA86A",
+            chainName: "Binance Smart Chain Mainnet",
+            rpcUrls: ["https://api.avax.network/ext/bc/C/rpc"],
+            nativeCurrency: {
+              symbol: "AVAX",
+              decimals: 18,
+            },
+          },
+        ],
+      });
+      localStorage.setItem("chain", "avalanche");
+      break;
+    case "ethereum":
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [
+          {
+            chainId: "0x1",
+            chainName: "Ethereum Mainnet",
+            rpcUrls: ["https://eth.llamarpc.com"],
+            nativeCurrency: {
+              symbol: "ETH",
+              decimals: 18,
+            },
+          },
+        ],
+      });
+      localStorage.setItem("chain", "ethereum");
+      break;
+    case "bitgert":
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [
+          {
+            chainId: "0x7f08",
+            chainName: "Bitgert Mainnet",
+            rpcUrls: ["https://rpc.icecreamswap.com"],
+            nativeCurrency: {
+              symbol: "Brise",
+              decimals: 18,
+            },
+          },
+        ],
+      });
+      localStorage.setItem("chain", "fantom");
+      break;
+    case "polygon":
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [
+          {
+            chainId: "0x89",
+            chainName: "Polygon Mainnet",
+            rpcUrls: ["https://polygon.llamarpc.com"],
+            nativeCurrency: {
+              symbol: "MATIC",
+              decimals: 18,
+            },
+          },
+        ],
+      });
+      localStorage.setItem("chain", "polygon");
+      break;
+    case "metis":
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [
+          {
+            chainId: "0x440",
+            chainName: "Metis Andromeda Mainnet",
+            rpcUrls: ["https://andromeda.metis.io/?owner=1088"],
+            nativeCurrency: {
+              symbol: "METIS",
+              decimals: 18,
+            },
+          },
+        ],
+      });
+      localStorage.setItem("chain", "harmony");
+      break;
+
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [
+          {
+            chainId: "0x64",
+            chainName: "Harmony Mainnet Shard 0",
+            rpcUrls: ["https://rpc.gnosischain.com"],
+            nativeCurrency: {
+              symbol: "xDAI",
+              decimals: 18,
+            },
+          },
+        ],
+      });
+      localStorage.setItem("chain", "gnosis");
+      break;
+    case "arbitrum":
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [
+          {
+            chainId: "0xA4B1",
+            chainName: "Arbitrum One",
+            rpcUrls: ["https://arb1.arbitrum.io/rpc"],
+            nativeCurrency: {
+              symbol: "ETH",
+              decimals: 18,
+            },
+          },
+        ],
+      });
+      localStorage.setItem("chain", "arbitrum");
+      break;
+    case "optimism":
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [
+          {
+            chainId: "0xa",
+            chainName: "Optimism",
+            rpcUrls: ["https://mainnet.optimism.io"],
+            nativeCurrency: {
+              symbol: "ETH",
+              decimals: 18,
+            },
+          },
+        ],
+      });
+      localStorage.setItem("chain", "optimism");
+      break;
+
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [
+          {
+            chainId: "0x313",
+            chainName: "Acala Network",
+            rpcUrls: ["https://eth-rpc-acala.aca-api.network"],
+            nativeCurrency: {
+              symbol: "ACA",
+              decimals: 18,
+            },
+          },
+        ],
+      });
+      localStorage.setItem("chain", "acala");
+      break;
+    case "mantle":
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [
+          {
+            chainId: "0x1388",
+            chainName: "Mantle",
+            rpcUrls: ["https://rpc.mantle.xyz"],
+            nativeCurrency: {
+              symbol: "BIT",
+              decimals: 18,
+            },
+          },
+        ],
+      });
+      localStorage.setItem("chain", "astar");
+      break;
+    case "aurora":
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [
+          {
+            chainId: "0x4E454152",
+            chainName: "Aurora Mainnet",
+            rpcUrls: [
+              "https://endpoints.omniatech.io/v1/aurora/mainnet/public",
+            ],
+            nativeCurrency: {
+              symbol: "ETH",
+              decimals: 18,
+            },
+          },
+        ],
+      });
+      localStorage.setItem("chain", "aurora");
+      break;
+    case "kava":
+      await window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [
+          {
+            chainId: "0x8AE",
+            chainName: "KAVA",
+            rpcUrls: ["https://evm.kava.io"],
+            nativeCurrency: {
+              symbol: "KAVA",
+              decimals: 18,
+            },
+          },
+        ],
+      });
+      localStorage.setItem("chain", "kava");
+      break;
+
+    default:
+      break;
+  }
+}
