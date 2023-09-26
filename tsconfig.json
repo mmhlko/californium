@@ -20,6 +20,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
+<<<<<<< HEAD
   "include": ["src", "scripts/web3.js", "scripts/web3.js"],
+=======
+  "include": ["src", "scripts"],
+>>>>>>> 08981c76b97999105ec74827bfef97ac8059f603
   "references": [{ "path": "./tsconfig.node.json" }]
 }

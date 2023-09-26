@@ -16,9 +16,6 @@ import { ReactComponent as Metis} from "../../../assets/icons/crypto/avalanche-a
 import { ReactComponent as Arbitrium} from "../../../assets/icons/crypto/arbitrum-arb-logo.svg";
 import { ReactComponent as Chia} from "../../../assets/icons/crypto/chia-network-xch-logo.svg";
 
-
-
-
 export const WEB_TYPES:TContractTypes = [
     {label: <span><BSC />Binance Smart Chain</span>, value: "bsc"},
     {label: <span><ETH />Ethereum</span>, value: "eth"},

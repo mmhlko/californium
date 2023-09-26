@@ -22,7 +22,11 @@
     "react-router-dom": "^6.15.0",
     "react-select": "^5.7.4",
     "vite-plugin-svgr": "^3.2.0",
+<<<<<<< HEAD
     "web3": "^1.10.0"
+=======
+    "web3": "^4.1.2"
+>>>>>>> 08981c76b97999105ec74827bfef97ac8059f603
   },
   "devDependencies": {
     "@types/node": "^20.6.3",

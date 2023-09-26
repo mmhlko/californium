@@ -17,5 +17,10 @@ export type TContractState = {
     webType: string
 }
 
+<<<<<<< HEAD
 export type TContractTypes = {label: ReactNode, value: string}[];
 export type TContractTypeItem = {label: string, value: string};
+=======
+export type TContractTypes = {label: ReactNode | string, value: string}[];
+export type TContractTypeItem = {label: ReactNode | string, value: string};
+>>>>>>> 08981c76b97999105ec74827bfef97ac8059f603
