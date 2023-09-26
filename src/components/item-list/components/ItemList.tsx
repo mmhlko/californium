@@ -34,7 +34,7 @@ export const ItemList = ({ list, type }: ContractTypeListProps) => {
         }
     }
 
-    const returnListItem = (item: TContractTypeItem, index: number) => (
+    const returnListItem:any = (item: TContractTypeItem, index: number) => (
         <li className={classNames(s.item, s[`item-${type}`])} key={index}>
             <input onClick={(e) => handleClick(e, item)} type="radio" id={`conract-${item.value}-${index}`} name={`${type}-types`} value={item.value} />
             <label htmlFor={`conract-${item.value}-${index}`}>{item.label}</label>
