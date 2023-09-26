@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 
 import Web3 from "web3";
 import ERC20ABI from "../ABI/erc20Bytecode.json"
@@ -7,23 +9,22 @@ import NFTBytecode from "../ABI/NFTBytecode.json";
 import DAOABI from "../ABI/DAO.json";
 import DAOBytecode from "../ABI/DAOBytecode.json";
 import StakingABI from "../ABI/Staking.json";
-import StakingBytecode from "./ABI/StakingBytecode.json";
+import StakingBytecode from "../ABI/StakingBytecode.json";
 // import VestingABI from "../ABI/Vesting.json";
 // import VestingBytecode from "../ABI/VestingBytecode.json";
 import FarmingABI from "../ABI/Farming.json";
 import FarmingBytecode from "../ABI/FarmingBytecode.json";
-
-
 import DeflationaryABI from "../ABI/Deflatationary.json";
 import DeflationaryBytecode from "../ABI/DeflationaryBytecode.json";
 import JackpotABI from "../ABI/Jackpot.json";
 import JackpotBytecode from "../ABI/JackpotBytecode.json";
 import LotteryGameABI from "../ABI/LotteryGame.json";
-import LotteryGameBytecode from ".../ABI/LotteryGameBytecode.json";
+import LotteryGameBytecode from "../ABI/LotteryGameBytecode.json";
 import PrizeWinABI from  "../ABI/PrizeWin.json";
 import PrizeWinBytecode from "../ABI/PrizeWinBytecode.json";
 import CrowdsaleABI from "../ABI/Crowdsale.json";
 import CrowdsaleBytecode from "../ABI/CrowdsaleBytecode.json";
+
 
 
 
@@ -62,8 +63,10 @@ export async function metamaskConnection() {
     // Listen for account changes
     await window.ethereum.on("accountsChanged", (accounts) => {
       account = accounts[0];
+      window.location.reload()
       
     });
+    
     return account;
   } catch (error) {
     console.error("Error connecting to MetaMask:", error);

@@ -3,7 +3,7 @@ import { TSetWalletAction, TWalletActions, TWalletState } from "./types";
 
 
 const initialState:TWalletState = {
-    walletNumber: '0x7a7a85e3cb5cc470fe419b3d79eefee128ba7da2',
+    walletNumber: 'Подключить кошелек',
 }
 
 export const walletReducer = (state = initialState, action: TWalletActions) => {
