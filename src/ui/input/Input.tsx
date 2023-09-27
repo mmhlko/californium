@@ -10,7 +10,6 @@ export const Input = ({ value, onChange, placeholder, type="text", ...rest}: IFo
     return (
         <input
             type={type}
-            
             className={s.input}
             onChange={onChange}
             placeholder={placeholder}

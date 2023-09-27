@@ -32,6 +32,3 @@ export const setWebTypeAction = (webType: string): TSetWebTypeAction => {
         payload: webType
     }
 }
-
-
-

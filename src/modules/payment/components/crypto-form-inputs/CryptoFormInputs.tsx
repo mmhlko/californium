@@ -3,9 +3,11 @@ import { Input } from "../../../../ui/input/Input";
 import s from './styles.module.scss';
 import { TPaymentInput } from "../Payment";
 import { InputType, InputVariety } from "../../types/types";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState, useEffect, memo } from "react";
 import { useAppSelector } from "../../../../storage/hookTypes";
 import { ReactComponent as CopyBtnSvg } from "../../assets/copy-btn.svg";
+import { useDispatch } from "react-redux";
+import { addFormInputValueAction } from "../../../../storage/payment-form/paymentFormReducer";
 
 type CryptoFormInputsProps = {
     inputList: TPaymentInput[]
@@ -16,20 +18,36 @@ export const CryptoFormInputs = ({ inputList }: CryptoFormInputsProps) => {
     const [number, setNumber] = useState(1);
     const [checked, setChecked] = useState(false);
     const walletNumber = useAppSelector(state => state.wallet.walletNumber)
+    const dispatch = useDispatch();
 
-    const handleMinusClick = () => {
-        number !== 1 && setNumber(prev => prev - 1)
-    }
-    const handlePlusClick = () => {
-        number < 18 && setNumber(prev => prev + 1)
-    }
-    const handleCheckboxClick = (e: ChangeEvent<HTMLInputElement>) => {
-        setChecked(e.target.checked)
-    }
     const handleCopyWalletClick = () => {
         navigator.clipboard.writeText(walletNumber)
     }
-    const InputNumber = () => {
+
+    const handleTextInputChange = (e:ChangeEvent<HTMLInputElement>) => {
+        dispatch(addFormInputValueAction({name: e.target.name, value: e.target.value}))        
+    }
+
+    const InputNumber = memo(({name}: {name: string}) => {
+        
+        const handleMinusClick = () => {
+            if (number !== 1) {
+                setNumber(prev => prev - 1)
+                dispatch(addFormInputValueAction({name: name, value: number}))
+            }           
+        }
+
+        const handlePlusClick = () => {
+            if (number < 18) {
+                setNumber(prev => prev + 1)
+                dispatch(addFormInputValueAction({name: name, value: number}))
+            }
+        }
+
+        useEffect(() => {
+            dispatch(addFormInputValueAction({name: name, value: number}))
+        }, [])
+
         return (
             <div className={classNames(s.input_number)}>
                 <button onClick={handleMinusClick} className={s.input_number_btn}>-</button>
@@ -37,9 +55,16 @@ export const CryptoFormInputs = ({ inputList }: CryptoFormInputsProps) => {
                 <button onClick={handlePlusClick} className={s.input_number_btn}>+</button>
             </div>
         )
-    }
+    })
 
     const InputCheckBox = () => {
+
+        const handleCheckboxClick = (e: ChangeEvent<HTMLInputElement>) => {
+            const input = e.target
+            setChecked(input.checked)
+            dispatch(addFormInputValueAction({name: input.name, value: input.value}))            
+        }
+
         return (
             <div className={classNames(s.input_checkbox)}>
                 <Input checked={checked} onChange={handleCheckboxClick} id="checkbox" name="checkbox" type={InputType.checkbox} />
@@ -66,9 +91,9 @@ export const CryptoFormInputs = ({ inputList }: CryptoFormInputsProps) => {
                         ? item.type === InputType.checkbox
                             ? <InputCheckBox />
                             : item.variety === InputVariety.wallet
-                                ? <InputWallet item={item}/>
-                                : <Input id={item.title} placeholder={item.placeHolder} type={item.type} />
-                        : <InputNumber />
+                                ? <InputWallet item={item} />
+                                : <Input id={item.title} placeholder={item.placeHolder} type={item.type} name={item.name} onChange={handleTextInputChange}/>
+                        : <InputNumber name={item.name} />
                     }
                 </div>
             ))}

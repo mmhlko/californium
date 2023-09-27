@@ -17,5 +17,8 @@ export type TContractState = {
     webType: string
 }
 
-export type TContractTypes = {label: ReactNode | string, value: string}[];
-export type TContractTypeItem = {label: ReactNode | string, value: string};
+export type TContractTypes = TContractTypeItem[];
+export type TContractTypeItem = {label: string, value: string};
+
+export type TWebTypes = TWebTypeItem[];
+export type TWebTypeItem = {label: ReactNode, value: string};
