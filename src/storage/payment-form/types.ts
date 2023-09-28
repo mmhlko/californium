@@ -2,13 +2,15 @@ import { ADD_INPUT_ITEM, RESET_FORM } from "./constants"
 
 export type TPaymentFormItem = {
     name: string,
-    value: string | number
+    value: string | number | boolean
 }
 
+export type TPaymentData = {
+    [name: string]: string | number | boolean
+} | null
+
 export type TPaymentFormState = {
-    data: {
-        [name: string]: string | number
-    } | null
+    data: TPaymentData
 }
 
 export type TPaymentFormActions = TAddFormInputValueAction | TResetFormAction;

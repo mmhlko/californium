@@ -3,83 +3,22 @@ import { Input } from "../../../../ui/input/Input";
 import s from './styles.module.scss';
 import { TPaymentInput } from "../Payment";
 import { InputType, InputVariety } from "../../types/types";
-import { ChangeEvent, useState, useEffect, memo } from "react";
-import { useAppSelector } from "../../../../storage/hookTypes";
-import { ReactComponent as CopyBtnSvg } from "../../assets/copy-btn.svg";
+import { ChangeEvent } from "react";
 import { useDispatch } from "react-redux";
 import { addFormInputValueAction } from "../../../../storage/payment-form/paymentFormReducer";
+import { InputNumber } from "../input-number/InputNumber";
+import { InputCheckBox } from "../input-checkbox/InputCheckBox";
+import { InputWallet } from "../input-wallet/InputWallet";
 
 type CryptoFormInputsProps = {
     inputList: TPaymentInput[]
 }
 
-export const CryptoFormInputs = ({ inputList }: CryptoFormInputsProps) => {
-
-    const [number, setNumber] = useState(1);
-    const [checked, setChecked] = useState(false);
-    const walletNumber = useAppSelector(state => state.wallet.walletNumber)
+export const CryptoFormInputs = ({ inputList }: CryptoFormInputsProps) => {    
+    
     const dispatch = useDispatch();
-
-    const handleCopyWalletClick = () => {
-        navigator.clipboard.writeText(walletNumber)
-    }
-
     const handleTextInputChange = (e:ChangeEvent<HTMLInputElement>) => {
         dispatch(addFormInputValueAction({name: e.target.name, value: e.target.value}))        
-    }
-
-    const InputNumber = memo(({name}: {name: string}) => {
-        
-        const handleMinusClick = () => {
-            if (number !== 1) {
-                setNumber(prev => prev - 1)
-                dispatch(addFormInputValueAction({name: name, value: number}))
-            }           
-        }
-
-        const handlePlusClick = () => {
-            if (number < 18) {
-                setNumber(prev => prev + 1)
-                dispatch(addFormInputValueAction({name: name, value: number}))
-            }
-        }
-
-        useEffect(() => {
-            dispatch(addFormInputValueAction({name: name, value: number}))
-        }, [])
-
-        return (
-            <div className={classNames(s.input_number)}>
-                <button onClick={handleMinusClick} className={s.input_number_btn}>-</button>
-                <span className={s.input_number_value}>{number}</span>
-                <button onClick={handlePlusClick} className={s.input_number_btn}>+</button>
-            </div>
-        )
-    })
-
-    const InputCheckBox = () => {
-
-        const handleCheckboxClick = (e: ChangeEvent<HTMLInputElement>) => {
-            const input = e.target
-            setChecked(input.checked)
-            dispatch(addFormInputValueAction({name: input.name, value: input.value}))            
-        }
-
-        return (
-            <div className={classNames(s.input_checkbox)}>
-                <Input checked={checked} onChange={handleCheckboxClick} id="checkbox" name="checkbox" type={InputType.checkbox} />
-                <label htmlFor="checkbox"></label>
-            </div>
-        )
-    }
-
-    const InputWallet = ({ item }: { item: TPaymentInput }) => {
-        return (
-            <div className={s.input_wallet}>
-                <Input id={item.title} value={walletNumber} placeholder={item.placeHolder} type={item.type} />
-                <CopyBtnSvg onClick={handleCopyWalletClick} />
-            </div>
-        )
     }
 
     return (

@@ -3,11 +3,13 @@ import { Button } from '../../../ui/button/Button';
 import s from './styles.module.scss';
 import { CryptoFormInputs } from './crypto-form-inputs/CryptoFormInputs';
 import { useAppSelector } from '../../../storage/hookTypes';
-import { FormEvent, memo, useRef, useState } from 'react';
-import { ContractTypes, InputType, InputVariety } from '../types/types';
+import { FormEvent, memo, useRef, useState, useEffect } from 'react';
+import { InputType, InputVariety } from '../types/types';
 import { contractInputsData } from '../constants/contractInputsData';
 import { useDispatch } from 'react-redux';
 import { resetFormAction } from '../../../storage/payment-form/paymentFormReducer';
+import { ContractTypes } from '../../../utils/contractTypes';
+import { paymentSwitcher } from '../helpers/paymentSwitcher';
 
 export type TPaymentInput = {
     title: string,
@@ -20,14 +22,18 @@ export type TPaymentInput = {
 }
 
 export const Payment = memo(() => {
-
     const contractTypelabel = useAppSelector(state => state.contract.contractType?.label);
     const contractTypeValue = useAppSelector(state => state.contract.contractType?.value);
+    const walletNumber = useAppSelector(state => state.wallet.walletNumber)
+    const paymentForm = useAppSelector(state => state.paymentForm.data)
     const [errorMessage, setErrorMessage] = useState<string>();
     const dispatch = useDispatch();
     const formRef = useRef<HTMLFormElement>(null);
 
-    const handleSubmit = (e: FormEvent) => {
+    const onPaymentSubmit = (e:FormEvent) => {
+        e.preventDefault();
+        const paymentData = {...paymentForm, walletNumber}
+        paymentSwitcher(contractTypeValue, paymentData)    
     }
 
     const returnCryptoFormInputs = () => {
@@ -36,7 +42,6 @@ export const Payment = memo(() => {
             switch (contractTypeValue) {
                 case ContractTypes[key]: {
                     error = '';
-                    dispatch(resetFormAction())
                     return <CryptoFormInputs inputList={contractInputsData[ContractTypes[key]]} />
                 }
                 default:
@@ -47,12 +52,16 @@ export const Payment = memo(() => {
         setErrorMessage(error)
     }
 
+    useEffect(() => {
+        dispatch(resetFormAction())
+    }, [contractTypeValue])
+
     return (
         <section className={s.wrapper}>
             <ContentHeader title={contractTypelabel}>
                 <span className="step">{"ШАГ (4 / 4)"}</span>
             </ContentHeader>
-            <form className={s.form} onSubmit={handleSubmit} ref={formRef}>
+            <form className={s.form} ref={formRef} onSubmit={onPaymentSubmit}>
                 {errorMessage ? errorMessage : returnCryptoFormInputs()}
                 {!errorMessage &&
                     <div className={s.payment_wrapper}>

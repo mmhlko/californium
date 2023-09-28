@@ -10,7 +10,7 @@ import { ReactNode } from "react";
 
 type Option = {
     value: string,
-    label: string | ReactNode
+    label: string //| ReactNode
 }
 
 type SortSelectProps = {

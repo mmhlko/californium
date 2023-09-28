@@ -1,5 +1,6 @@
+import { ContractTypes } from "../../../utils/contractTypes"
 import { TPaymentInput } from "../components/Payment"
-import { ContractTypes, InputType, InputVariety } from "../types/types"
+import { InputType, InputVariety } from "../types/types"
 
 export type TContractInputsData = {
     [name: string]: TPaymentInput[]
@@ -45,7 +46,7 @@ export const contractInputsData:TContractInputsData = {
         { title: "Vesting duration", name: "vestingDuration", placeHolder: "дд.мм.гг", type: InputType.text, wide: false, alone: false, variety: InputVariety.general },
         { title: "Total tokens", name: "totalTokens", placeHolder: "Enter total tokkens", type: InputType.text, wide: false, alone: false, variety: InputVariety.general },
         { title: "Revocable", name: "revocable", placeHolder: "", type: InputType.checkbox, wide: false, alone: false, variety: InputVariety.general },
-        { title: "Address", name: "address", placeHolder: "0x7a7a85e3cb5cc470fe419b3d79eefee128ba7da2", type: InputType.text, wide: true, alone: false, variety: InputVariety.general },
+        { title: "Address", name: "address", placeHolder: "0x7a7a85e3cb5cc470fe419b3d79eefee128ba7da2", type: InputType.text, wide: true, alone: false, variety: InputVariety.wallet },
     ],
     [ContractTypes.STAKING]: [
         { title: "Ticket name", name: "ticketName", placeHolder: "Enter the ticket price", type: InputType.text, wide: false, alone: false, variety: InputVariety.general },

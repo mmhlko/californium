@@ -1,7 +1,6 @@
 import { ADD_INPUT_ITEM, RESET_FORM } from "./constants";
 import { TAddFormInputValueAction, TPaymentFormActions, TPaymentFormItem, TPaymentFormState, TResetFormAction } from "./types";
 
-
 const initialState:TPaymentFormState = {
     data: null
 }
