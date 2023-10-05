@@ -3,8 +3,7 @@ import s from "./styles.module.scss";
 import classNames from "classnames";
 import { useDispatch } from "react-redux";
 import { setContractTypeAction, setWebTypeAction } from "../../../storage/contract/contractReducer";
-import { TContractTypeItem, TContractTypes } from "../../../storage/contract/types";
-import { walletConnectionChange } from "../../../../scripts/web3";
+import { TContractTypeItem, TContractTypes, TWebTypeItem, TWebTypes } from "../../../storage/contract/types";
 
 
 export enum ListType {
@@ -13,7 +12,7 @@ export enum ListType {
 }
 
 type ContractTypeListProps = {
-    list: TContractTypes,
+    list: TContractTypes | TWebTypes,
     type: ListType
 }
 
@@ -21,23 +20,21 @@ export const ItemList = ({ list, type }: ContractTypeListProps) => {
 
     const dispatch = useDispatch();
 
-    const handleClick = (e: SyntheticEvent<HTMLInputElement>, item:TContractTypeItem) => {
-        
+    const handleClick = (e: SyntheticEvent<HTMLInputElement>, item:TContractTypeItem | TWebTypeItem) => {        
         switch (type) {
             case ListType.contract:
-                dispatch(setContractTypeAction({value: e.currentTarget.value, label:item.label}))
+                dispatch(setContractTypeAction({value: e.currentTarget.value, label:item.label as string}))
                 break;
             case ListType.web:
-                dispatch(setWebTypeAction(e.currentTarget.value))
-                walletConnectionChange(e.currentTarget.value)
-
+                dispatch(setWebTypeAction(e.currentTarget.value));
+                                
                 break;
             default:
                 break;
         }
     }
 
-    const returnListItem = (item: TContractTypeItem, index: number) => (
+    const returnListItem = (item: TContractTypeItem | TWebTypeItem, index: number) => (
         <li className={classNames(s.item, s[`item-${type}`])} key={index}>
             <input onClick={(e) => handleClick(e, item)} type="radio" id={`conract-${item.value}-${index}`} name={`${type}-types`} value={item.value} />
             <label htmlFor={`conract-${item.value}-${index}`}>{item.label}</label>
@@ -52,5 +49,3 @@ export const ItemList = ({ list, type }: ContractTypeListProps) => {
         </div>
     )
 }
-
-

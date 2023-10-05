@@ -1,0 +1,112 @@
+.inputs_wrapper {
+    flex-grow: 1;
+    display: grid;
+    column-gap: 20px;
+    row-gap: 26px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+    .input_item {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-self: flex-end;
+
+        input {
+            width: 100%;
+        }
+
+        &_wide {
+            grid-column: 1 / -1;
+        }
+        &_alone {
+            grid-column: 1 / -1;
+            span, input {
+                width: 50%;
+            }
+        }
+    }
+    
+}
+
+.chain_label {
+    font-size: 20px;
+    line-height: 104%;
+}
+
+.input_number {
+    width: 100%;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+	padding: 7px 9px;
+	align-items: center;
+	border-radius: 10px;
+	background: var(--background-color-secondary);
+	outline: none;
+	border: 1px solid transparent;
+
+    &_btn { 
+        width: 58px;
+        height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        border: none;
+        background-color: var(--color-blue);
+        cursor: pointer;        
+    }
+    &_value {
+        width: 40px;
+        text-align: center;
+    }
+    
+}
+
+.input_checkbox {
+    width: 72px;
+    height: 72px;
+    background: var(--background-color-secondary);
+    border-radius: 10px;
+
+    input {
+        display: none;
+    }
+    label {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    input:checked+label::before {
+        content: url("../../assets/check.svg");
+        display: block;
+        width: 42px;
+        height: 42px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.input_wallet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    input {
+        padding-right: 76px;
+    }
+
+    svg {
+        position: absolute;
+        right: 20px;
+        cursor: pointer;
+    }
+    svg:hover {
+        stroke: var(--text-02);
+        stroke-width: 1px;
+    }
+}

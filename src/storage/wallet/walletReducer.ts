@@ -23,7 +23,3 @@ export const setWalletAction = (contractType: string):TSetWalletAction => {
         payload: contractType,
     }
 }
-
-
-
-
