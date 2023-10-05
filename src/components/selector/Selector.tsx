@@ -6,15 +6,16 @@ import { ListType } from '../item-list/components/ItemList';
 import { useDispatch } from 'react-redux';
 import { setContractTypeAction } from '../../storage/contract/contractReducer';
 import { useEffect, useState } from 'react';
+import { ReactNode } from "react";
 
 type Option = {
     value: string,
-    label: string
+    label: string | ReactNode
 }
 
 type SortSelectProps = {
     options: Option[],
-    type: SelectorOptions
+    type: SelectorOptions | ListType
 }
 
 export enum SelectorOptions {
