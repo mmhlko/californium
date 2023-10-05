@@ -7,21 +7,19 @@ import { Payment } from "../../modules/payment";
 import { Button } from "../../ui/button/Button";
 import { BreadCrumbs } from "../../components/bread-crumbs/BreadCrumbs";
 import { routePath } from "../../app/providers/AppRouter";
-import { Modal } from "../../components/modal/Modal";
-
 
 const CreateContractPage = () => {
 
     const [step, setStep] = useState<string>('1');
 
     const RenderStep1 = () => {
-        return <ArticleList setStep={setStep}/>
+        return <ArticleList setStep={setStep} />
     }
 
     const RenderStep2 = () => {
         return (
-            <>               
-                <ContractTypeList/>
+            <>
+                <ContractTypeList />
                 <WebList />
                 <div className={s.next_step}>
                     <Button action={() => setStep("3")} arrow>
@@ -34,9 +32,7 @@ const CreateContractPage = () => {
 
     const RenderStep3 = () => {
         return (
-            <>
-                <Payment />
-            </>
+            <Payment />
         )
     }
 
@@ -53,13 +49,13 @@ const CreateContractPage = () => {
         }
     }
 
-    useEffect(()=>{
-        window.scrollTo({top: 0});
-    },[renderSwitch])
+    useEffect(() => {
+        window.scrollTo({ top: 0 });
+    }, [renderSwitch])
 
     return (
-        <>  
-            <BreadCrumbs title="Создать контракт" url={routePath.createСontract} sepatator="/"/>            
+        <>
+            <BreadCrumbs title="Создать контракт" url={routePath.createСontract} sepatator="/" />
             {renderSwitch()}
         </>
     )

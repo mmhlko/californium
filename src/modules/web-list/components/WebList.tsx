@@ -1,8 +1,9 @@
 import { ContentHeader } from "../../../components/content-header/ContentHeader";
 import { ItemList } from "../../../components/item-list";
 import { ListType } from "../../../components/item-list/components/ItemList";
-import { TContractTypes } from "../../../storage/contract/types";
+import { WEB_TYPES } from "../constants/webTypes";
 import s from './styles.module.scss';
+<<<<<<< HEAD
 import { ReactComponent as BSC} from "../../../assets/icons/crypto/binance-smartchain.svg";
 import { ReactComponent as ETH} from "../../../assets/icons/crypto/ethereum-eth.svg";
 import { ReactComponent as Polygon} from "../../../assets/icons/crypto/polygon-matic-logo.svg";
@@ -30,6 +31,8 @@ export const WEB_TYPES:TContractTypes = [
     {label: <span><Arbitrium />Arbitrium One</span>, value: "arbitriumOne"},   
     {label: <span><Chia />Chia networks</span>, value: "chiaNetworks"},  
 ]
+=======
+>>>>>>> 3d3458bfaf6699d721522c6aacf5462bf9483065
 
 export const WebList = () => {
 
