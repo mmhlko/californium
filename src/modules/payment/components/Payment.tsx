@@ -38,7 +38,7 @@ export const Payment = memo(() => {
 
     const returnCryptoFormInputs = () => {
         let error = '';
-        for (const key in ContractTypes) {
+        for (let key in ContractTypes) {
             switch (contractTypeValue) {
                 case ContractTypes[key]: {
                     error = '';
