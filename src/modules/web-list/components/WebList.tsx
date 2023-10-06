@@ -1,11 +1,7 @@
 import { ContentHeader } from "../../../components/content-header/ContentHeader";
 import { ItemList } from "../../../components/item-list";
 import { ListType } from "../../../components/item-list/components/ItemList";
-import { WEB_TYPES } from "../constants/webTypes";
 import s from './styles.module.scss';
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 import { ReactComponent as BSC} from "../../../assets/icons/crypto/binance-smartchain.svg";
 import { ReactComponent as ETH} from "../../../assets/icons/crypto/ethereum-eth.svg";
 import { ReactComponent as Polygon} from "../../../assets/icons/crypto/polygon-matic-logo.svg";
@@ -18,6 +14,7 @@ import { ReactComponent as Kawa} from "../../../assets/icons/crypto/kawa-network
 import { ReactComponent as Metis} from "../../../assets/icons/crypto/avalanche-avax-logo 2.svg";
 import { ReactComponent as Arbitrium} from "../../../assets/icons/crypto/arbitrum-arb-logo.svg";
 import { ReactComponent as Chia} from "../../../assets/icons/crypto/chia-network-xch-logo.svg";
+import { TContractTypes } from "../../../storage/contract/types";
 
 export const WEB_TYPES:TContractTypes = [
     {label: <span><BSC />Binance Smart Chain</span>, value: "bsc"},
@@ -33,9 +30,6 @@ export const WEB_TYPES:TContractTypes = [
     {label: <span><Arbitrium />Arbitrium One</span>, value: "arbitriumOne"},   
     {label: <span><Chia />Chia networks</span>, value: "chiaNetworks"},  
 ]
-=======
->>>>>>> 3d3458bfaf6699d721522c6aacf5462bf9483065
->>>>>>> f9b5bbee9bef433e4f3fb6d1cb198b654b8cb6a5
 
 export const WebList = () => {
 
